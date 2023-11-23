@@ -1,30 +1,30 @@
-const express = require('express')
-const cors = require('cors')
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const userRouter = require("./app/user/route");
 
-const app = express()
+const app = express();
 
-var corOptions = {
-    origin: 'http://localhost:0001'
-}
+app.use(express.json()); // Use express.json() middleware
+app.use(bodyParser.json());// Parse incoming request bodies in a middleware before your handlers, available under the req.body property
+app.use(express.urlencoded({ extended: true }));
 
-//middlewares
-//app.use(cors(corOptions))
+app.use("/user", userRouter);
 
-app.use(express.json)
-
-app.use(express.urlencoded ({ extended: true}))
-
-//testing api
-app.get('/', (req, res)=>{
-    return res.json ({
-        message: 'hello from api'
+// Testing API
+app.get('/', (req, res) => {
+    return res.json({
+        message: 'Hello from the API'
     });
 });
 
-//port
-const PORT = process.env.PORT || 8080
+// Port
+const PORT = process.env.PORT || 8000;
 
-//server
+
+// Server
 app.listen(PORT, () => {
-    console.log(`server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports = app;
