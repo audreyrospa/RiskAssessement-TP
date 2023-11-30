@@ -7,12 +7,16 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             allowNull: false,
         },
-        hazard: {
+        possibleAccident: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
+        implementPerson: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        injuryorAccident: {
-            type: DataTypes.STRING,
+        dueDate: {
+            type: DataTypes.DATE,
             allowNull: false,
         },
         riskEval_id: {

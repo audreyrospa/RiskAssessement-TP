@@ -1,10 +1,17 @@
-// import controllers review, products
 const workActivityController = require('../controllers/workActivityController')
-// const raDashboardController = require('../controllers/raDashboardController')
 
 // router
 const router = require('express').Router()
 
 
 // use routers
+
+// API Add work activity
 router.post('/addWorkActivity', workActivityController.addWorkActivity)
+
+// API Get all work activities
+router.get('/getAllWorkActivity', workActivityController.getAllWorkActivities)
+
+// API Get work activity by ID
+router.get('/getWorkActivity/:id', workActivityController.getWorkActivityById)
+

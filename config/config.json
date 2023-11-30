@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "",
-    "database": "risk_assessement_tp",
+    "password": "audrey_db",
+    "database": "riskassessement",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "",
-    "database": "risk_assessement_tp",
+    "password": "audrey_db",
+    "database": "riskassessement",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "",
-    "database": "risk_assessement_tp",
+    "password": "audrey_db",
+    "database": "riskassessement",
     "host": "127.0.0.1",
     "dialect": "mysql" 
   }
