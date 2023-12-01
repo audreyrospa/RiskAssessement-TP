@@ -45,6 +45,12 @@ module.exports = (sequelize, DataTypes) => {
         },
     }, {
         timestamps: true,
+        hooks: {
+            beforeSave: (riskEval, options) => {
+                // Calculate RPN before saving
+                riskEval.RC_RPN = riskEval.RC_Severity * riskEval.RC_Likelihood;
+            }
+        }
     })
     return RiskControl
 }

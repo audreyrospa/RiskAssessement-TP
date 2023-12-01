@@ -15,3 +15,5 @@ router.get('/getAllWorkActivity', workActivityController.getAllWorkActivities)
 // API Get work activity by ID
 router.get('/getWorkActivity/:id', workActivityController.getWorkActivityById)
 
+module.exports = router;
+

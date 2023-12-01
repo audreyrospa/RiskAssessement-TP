@@ -9,19 +9,19 @@ module.exports = (sequelize, DataTypes) => {
         },
         existRiskControl: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         RE_Severity: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         RE_Likehood: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         RE_RPN: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         hazard_id: {
             type: DataTypes.INTEGER,
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         riskControl_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             references: {
               model: 'riskControl',
               key: 'id'
@@ -41,6 +41,12 @@ module.exports = (sequelize, DataTypes) => {
         },
     }, {
         timestamps: true,
+        hooks: {
+            beforeSave: (riskEval, options) => {
+                // Calculate RPN before saving
+                riskEval.RE_RPN = riskEval.RE_Severity * riskEval.RE_Likelihood;
+            }
+        }
     })
     return RiskEval
 }

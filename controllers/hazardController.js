@@ -11,9 +11,9 @@ const addNewHazard = async (req, res) => {
             dueDate: req.body.dueDate,
         };
 
-        const newHazard = await Hazard.create(hazardInfo);
-        res.status(200).send(newHazard);
-        console.log(newHazard);
+        const hazard = await Hazard.create(hazardInfo);
+        res.status(200).send(hazard);
+        console.log(hazard);
     } catch (error) {
         console.error('Error adding new hazard:', error);
         res.status(500).send('Internal Server Error');

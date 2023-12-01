@@ -8,3 +8,5 @@ const router = require('express').Router()
 
 // API get all data for dashboard
 router.get('/addHazard', hazardController.addNewHazard)
+
+module.exports = router;
